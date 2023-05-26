@@ -487,13 +487,12 @@ def main(input_path, model_path, output_dir, need_animation=False, resize_h=None
 
 
 if __name__ == '__main__':
-    root = "input"
-    for f in os.listdir(root):
-        path = os.path.join(root, f)
-        main(input_path=path,
-             model_path='model.pth',
-             output_dir='output/',
-             need_animation=True,  # whether need intermediate results for animation.
-             resize_h=None,         # resize original input to this size. None means do not resize.
-             resize_w=None,         # resize original input to this size. None means do not resize.
-             serial=True)          # if need animation, serial must be True.
+    import sys
+    path = sys.argv[1]
+    main(input_path=path,
+            model_path='model.pth',
+            output_dir='output/',
+            need_animation=True,  # whether need intermediate results for animation.
+            resize_h=None,         # resize original input to this size. None means do not resize.
+            resize_w=None,         # resize original input to this size. None means do not resize.
+            serial=True)          # if need animation, serial must be True.
